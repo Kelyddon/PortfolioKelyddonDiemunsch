@@ -1,0 +1,10 @@
+<section class="home">
+  {% include 'about/_about.html.twig' ignore missing with {
+    'hardSkills': hardSkills,
+    'softSkills': softSkills
+  } %}
+
+  {% include 'home/_projects.html.twig' ignore missing with { 'projects': projects } %}
+
+  {% include 'contact/_contact.html.twig' with { 'form': contactForm } %}
+</section>

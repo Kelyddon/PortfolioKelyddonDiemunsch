@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SoftSkill index{% endblock %}
+
+{% block body %}
+    <h1>SoftSkill index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Skill</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for soft_skill in soft_skills %}
+            <tr>
+                <td>{{ soft_skill.id }}</td>
+                <td>{{ soft_skill.skill }}</td>
+                <td>
+                    <a href="{{ path('app_soft_skill_show', {'id': soft_skill.id}) }}">show</a>
+                    <a href="{{ path('app_soft_skill_edit', {'id': soft_skill.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_soft_skill_new') }}">Create new</a>
+{% endblock %}

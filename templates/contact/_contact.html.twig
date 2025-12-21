@@ -1,0 +1,41 @@
+<section id="contact" class="contact">
+  <div class="contact-card">
+    <h2 class="contact-title">Me contacter</h2>
+
+    {{ form_start(form) }}
+
+    <div class="form-row">
+      <label>Email</label>
+      {{ form_widget(form.email, { attr: { class: 'input' } }) }}
+      {{ form_errors(form.email) }}
+    </div>
+
+    <div class="form-row">
+      <label>Numéro de téléphone</label>
+      {{ form_widget(form.phone, { attr: { class: 'input' } }) }}
+      {{ form_errors(form.phone) }}
+    </div>
+
+    <div class="form-row">
+      <label>Description</label>
+      {{ form_widget(form.description, { attr: { class: 'textarea', rows: 4 } }) }}
+      {{ form_errors(form.description) }}
+    </div>
+
+    {% if form.captcha is defined %}
+      <div class="form-row">
+        <div class="captcha-box">
+          {{ form_widget(form.captcha) }}
+          <span>Capcha</span>
+        </div>
+        {{ form_errors(form.captcha) }}
+      </div>
+    {% endif %}
+
+    <div class="form-actions">
+      <button type="submit" class="contact-submit">Envoyer le message</button>
+    </div>
+
+    {{ form_end(form) }}
+  </div>
+</section>

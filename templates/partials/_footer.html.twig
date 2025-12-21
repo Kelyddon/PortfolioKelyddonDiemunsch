@@ -1,0 +1,31 @@
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="footer-col footer-info">
+      <h2 class="footer-title">Kelyddon Diemunsch</h2>
+      <p class="footer-text">Numéro de tel</p>
+    </div>
+
+    <div class="footer-col footer-nav">
+      <h2 class="footer-title">Navigateur</h2>
+      <div class="footer-box">
+        <ul class="footer-links">
+          <li><a href="{{ path('app_home') }}">Accueil</a></li>
+          {# <li><a href="{{ path('app_projects') }}">Projets</a></li>
+          <li><a href="{{ path('app_about') }}">A propos</a></li> #}
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-col footer-social">
+      <h2 class="footer-title">Réseaux sociaux</h2>
+      <div class="footer-box footer-social-box">
+        <a href="https://instagram.com" aria-label="Instagram">
+          <img src="{{ asset('images/instagram.png') }}" alt="Instagram" class="social-icon">
+        </a>
+        <a href="https://linkedin.com" aria-label="LinkedIn">
+          <img src="{{ asset('images/linkedin.png') }}" alt="LinkedIn" class="social-icon">
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

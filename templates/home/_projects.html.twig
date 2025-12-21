@@ -1,0 +1,49 @@
+<section class="projects">
+  <h2 class="projects-title">Projets réalisés</h2>
+
+  <div class="projects-grid">
+    {% for p in projects %}
+      {% set title = p.name ?? p.title ?? 'Projet ' ~ loop.index %}
+      {% set img   = p.imagePath ?? p.image ?? p.cover ?? null %}
+      {% set desc  = p.description ?? p.presentation ?? '' %}
+      {% set repo  = p.githubUrl ?? p.github ?? p.repoUrl ?? '#' %}
+      {% set langs = p.languages ?? p.langages ?? p.hardSkills ?? [] %}
+
+      <article class="project-card">
+        <header class="project-title">{{ title }}</header>
+
+        <div class="project-media">
+          {% if img %}
+            {% if img starts with 'http' %}
+              <img src="{{ img }}" alt="Image du projet {{ title }}">
+            {% else %}
+              <img src="{{ asset(img) }}" alt="Image du projet {{ title }}">
+            {% endif %}
+          {% else %}
+            <div class="project-placeholder">Photo du projet</div>
+          {% endif %}
+        </div>
+
+        <div class="project-langs">
+          {% if langs is iterable and langs|length > 0 %}
+            {% for l in langs %}
+              <span class="lang-chip">{{ l.language ?? l.name ?? l.label ?? l }}</span>
+            {% endfor %}
+          {% elseif langs %}
+            <span class="lang-chip">{{ langs }}</span>
+          {% else %}
+            <span class="lang-chip">Langages non renseignés</span>
+          {% endif %}
+        </div>
+
+        <div class="project-desc">{{ desc }}</div>
+
+        <div class="project-actions">
+          <a class="btn-github" href="{{ repo }}" target="_blank" rel="noopener">Voir sur GitHub</a>
+        </div>
+      </article>
+    {% else %}
+      <p>Aucun projet pour le moment.</p>
+    {% endfor %}
+  </div>
+</section>

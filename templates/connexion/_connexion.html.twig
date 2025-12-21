@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="contact">
+  <div class="contact-card">
+    <h2 class="contact-title">Admin – Connexion</h2>
+    <form method="post">
+      {% if error %}
+        <div class="form-row"><strong>Identifiants invalides</strong></div>
+      {% endif %}
+      <div class="form-row">
+        <label>Email</label>
+        <input class="input" type="email" name="_username" value="{{ last_username }}" required autofocus>
+      </div>
+      <div class="form-row">
+        <label>Mot de passe</label>
+        <input class="input" type="password" name="_password" required>
+      </div>
+      <div class="form-actions">
+        <button class="contact-submit" type="submit">Se connecter</button>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,100 @@
+<section id="about" class="about">
+  <div class="about-card">
+    <div class="about-grid">
+      <div class="about-left">
+        <h2 class="about-heading">Kelyddon Diemunsch</h2>
+
+        <div
+          class="about-textarea"
+          {% if is_granted('ROLE_ADMIN') %}
+            contenteditable="true"
+            data-admin-edit="about-text"
+          {% endif %}
+        >{{ aboutText ?? 'Zone de texte' }}</div>
+
+        <div class="skills-row">
+          <div class="skill-box">
+            <h3 class="pane-title">Hard skill</h3>
+            <div class="pane-body">
+              <ul class="skills-list hard">
+  {% for hs in hardSkills %}
+    <li
+      class="skill-item"
+      data-skill-type="hard"
+      data-skill-id="{{ hs.id }}"
+      {% if is_granted('ROLE_ADMIN') %}contenteditable="true"{% endif %}
+    >{{ hs.language }}</li>
+  {% endfor %}
+</ul>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <h3 class="pane-title">Soft skill</h3>
+            <div class="pane-body">
+              <ul class="skills-list soft">
+  {% for ss in softSkills %}
+    <li
+      class="skill-item"
+      data-skill-type="soft"
+      data-skill-id="{{ ss.id }}"
+      {% if is_granted('ROLE_ADMIN') %}contenteditable="true"{% endif %}
+    >{{ ss.skill }}</li>
+  {% endfor %}
+</ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% if is_granted('ROLE_ADMIN') %}
+  <section class="skills-add" style="margin-top:1rem">
+    <h3>Ajouter un skill</h3>
+    <form method="post" action="{{ path('app_home') }}" class="skill-form" style="margin-bottom:.5rem">
+      <input name="new_hard_skill" type="text" placeholder="Nouveau hard skill" required>
+      <button type="submit">Ajouter un hardskill</button>
+    </form>
+    <form method="post" action="{{ path('app_home') }}" class="skill-form">
+      <input name="new_soft_skill" type="text" placeholder="Nouveau soft skill" required>
+      <button type="submit">Ajouter un soft skill</button>
+    </form>
+
+    <div class="form-actions" style="margin-top:1rem">
+      <button
+        id="save-skills"
+        class="cv-button"
+        data-save-url="{{ path('skills_save') }}"
+      >Confirmer les modifications</button>
+    </div>
+  </section>
+{% endif %}
+
+      <div class="about-right">
+        <div
+          class="about-photo"
+          {% if is_granted('ROLE_ADMIN') %}
+            data-admin-photo
+          {% endif %}
+          aria-label="Photo"
+        >
+          {% if profilePhoto is defined %}
+            <img src="{{ asset(profilePhoto) }}" alt="Photo" style="width:100%;height:100%;object-fit:cover;border-radius:50% / 40%;">
+          {% else %}
+            Photo
+          {% endif %}
+        </div>
+        <a class="cv-button" href="{{ asset('cv/CV.pdf') }}" download>Télécharger le CV</a>
+        {% if is_granted('ROLE_ADMIN') %}
+          <input type="file" id="profile-photo-input" accept="image/*" hidden>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {% if is_granted('ROLE_ADMIN') %}
+  <form id="cv-upload-form" method="post" action="{{ path('admin_cv_upload') }}" enctype="multipart/form-data" style="margin-top:1rem">
+    <input type="file" id="cv-file-input" name="cv_file" accept="application/pdf" hidden>
+    <button type="button" id="cv-upload-btn" class="cv-button">Changer le CV</button>
+  </form>
+{% endif %}
+</section>

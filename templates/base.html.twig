@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Portfolio{% endblock %}</title>
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
+    <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+    {% block stylesheets %}{% endblock %}
+  </head>
+  <body>
+    {% include 'partials/_header.html.twig' %}
+
+    <main class="container">
+      {% block body %}
+        {% if partial is defined %}
+          {% include partial ignore missing %}
+        {% endif %}
+      {% endblock %}
+    </main>
+
+    {% include 'partials/_footer.html.twig' %}
+    <script src="{{ asset('js/admin.js') }}" defer></script>
+  </body>
+</html>
