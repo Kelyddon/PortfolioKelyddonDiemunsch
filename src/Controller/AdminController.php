@@ -24,16 +24,31 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/photo/upload', name: 'admin_photo_upload', methods: ['POST'])]
-    public function uploadPhoto(Request $req): JsonResponse
+    public function uploadPhoto(Request $req)
     {
         /** @var UploadedFile|null $file */
-        $file = $req->files->get('photo');
-        if (!$file) { return new JsonResponse(['status' => 'error', 'msg' => 'no file'], 400); }
+        $file = $req->files->get('photo_file') ?? $req->files->get('photo');
+        if (!$file) {
+            $this->addFlash('error', 'Aucun fichier envoyé.');
+            return $this->redirectToRoute('app_home');
+        }
 
-        $name = 'profile_'.time().'.'.$file->guessExtension();
-        $file->move($this->getParameter('kernel.project_dir').'/public/uploads', $name);
+        $mime = (string) $file->getMimeType();
+        if (!in_array($mime, ['image/jpeg', 'image/pjpeg'], true)) {
+            $this->addFlash('error', 'Seuls les JPG sont acceptés.');
+            return $this->redirectToRoute('app_home');
+        }
 
-        return new JsonResponse(['status' => 'ok', 'path' => 'uploads/'.$name]);
+        $dir = $this->getParameter('kernel.project_dir') . '/public/cv/images';
+        if (!is_dir($dir)) {
+            @mkdir($dir, 0775, true);
+        }
+
+        // Écrase un nom canonique pour que le front reste stable
+        $file->move($dir, 'profile.jpg');
+
+        $this->addFlash('success', 'Photo mise à jour.');
+        return $this->redirectToRoute('app_home');
     }
 
     #[Route('/admin/skill/add/{type}', name: 'admin_skill_add', methods: ['POST'])]

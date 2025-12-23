@@ -151,6 +151,8 @@ class HomeController extends AbstractController
         return $this->redirectToRoute('app_home');
     }
 
+    
+
     // Setter générique HardSkill (ex: language)
     private function setHardSkillValue(HardSkill $entity, string $value): void
     {

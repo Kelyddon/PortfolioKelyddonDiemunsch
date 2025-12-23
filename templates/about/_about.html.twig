@@ -73,16 +73,18 @@
               <input type="file" id="cv-file-input" name="cv_file" accept="application/pdf" hidden>
               <button type="button" id="cv-upload-btn" class="cv-button">Changer le CV</button>
             </form>
+
+            <form id="photo-upload-form" method="post" action="{{ path('admin_photo_upload') }}" enctype="multipart/form-data" style="margin-top:1rem">
+              <input type="file" id="photo-file-input" name="photo_file" accept="image/jpeg" hidden>
+              <button type="button" id="photo-upload-btn" class="cv-button">Changer la photo</button>
+            </form>
           </section>
         {% endif %}
       </div>
 
       <div class="about-right">
-        <div class="about-photo" data-admin-photo aria-label="Photo">
-          Photo
-        </div>
         <a class="cv-button" href="{{ asset('cv/CV.pdf') }}" download>Télécharger le CV</a>
-        <input type="file" id="profile-photo-input" accept="image/*" hidden>
+        <img src="{{ asset('cv/images/profile.jpg') }}?v={{ random() }}" alt="Photo de profil" class="about-photo" id="profilePhoto">
       </div>
     </div>
   </div>

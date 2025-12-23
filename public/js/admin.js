@@ -54,4 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (cvInput.files.length) cvForm.submit();
     });
   }
+
+  // Upload de la photo (même logique que le CV)
+  const photoBtn = document.getElementById('photo-upload-btn');
+  const photoInput = document.getElementById('photo-file-input');
+  const photoForm = document.getElementById('photo-upload-form');
+  if (photoBtn && photoInput && photoForm) {
+    photoBtn.addEventListener('click', () => photoInput.click());
+    photoInput.addEventListener('change', () => {
+      if (photoInput.files.length) photoForm.submit();
+    });
+  }
 });
