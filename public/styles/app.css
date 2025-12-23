@@ -234,6 +234,7 @@ main.container { flex: 1 0 auto; }
   font-weight: 600;
 }
 .about-textarea {
+  
   height: 170px;
   border: 1px solid var(--card-border);
   border-radius: var(--radius-sm);

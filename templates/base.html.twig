@@ -6,19 +6,14 @@
     <title>{% block title %}Portfolio{% endblock %}</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}">
     <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
-    {% block stylesheets %}{% endblock %}
   </head>
   <body>
     {% include 'partials/_header.html.twig' %}
-
     <main class="container">
-      {% block body %}
-        {% if partial is defined %}
-          {% include partial ignore missing %}
-        {% endif %}
-      {% endblock %}
+      {% if partial is defined %}
+        {% include partial ignore missing %}
+      {% endif %}
     </main>
-
     {% include 'partials/_footer.html.twig' %}
     <script src="{{ asset('js/admin.js') }}" defer></script>
   </body>
