@@ -10,6 +10,7 @@
   <body>
     {% include 'partials/_header.html.twig' %}
     <main class="container">
+    {% block body %}{% endblock %}
       {% if partial is defined %}
         {% include partial ignore missing %}
       {% endif %}
