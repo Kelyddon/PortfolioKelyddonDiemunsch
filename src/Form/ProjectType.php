@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Project;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,8 +15,20 @@ class ProjectType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('image')
-            ->add('langages')
+            // Unmapped file field: we'll handle the upload in controller
+            ->add('image', FileType::class, [
+                'mapped' => false,
+                'required' => false,
+                'help' => 'Image du projet (JPG/PNG) – sera copiée dans public/upload',
+            ])
+            // Choices provided by controller from HardSkill list
+            ->add('langages', ChoiceType::class, [
+                'choices' => $options['langage_choices'] ?? [],
+                'multiple' => true,
+                'expanded' => true,
+                'required' => false,
+                'help' => 'Sélectionner un ou plusieurs langages depuis vos Hard skills',
+            ])
             ->add('description')
             ->add('GithubLink')
             ->add('createAt', null, [
@@ -27,6 +41,7 @@ class ProjectType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Project::class,
+            'langage_choices' => [],
         ]);
     }
 }

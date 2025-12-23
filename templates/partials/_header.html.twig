@@ -8,7 +8,8 @@
   {# <a href="{{ path('app_projects') }}">Projets</a>
   <a href="{{ path('app_about') }}">À propos</a> #}
   {% if is_granted('ROLE_ADMIN') %}
-    <a href="/admin/projets/">Admin</a>
+    <a href="{{ path('app_project_index') }}">Admin projets</a>
+    <a href="{{ path('app_project_new') }}">Ajouter un projet</a>
   {% endif %}
 </nav>
 </header>
