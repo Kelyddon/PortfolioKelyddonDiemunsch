@@ -61,6 +61,20 @@ class HomeController extends AbstractController
         $aboutText = $aboutRow?->getContent();
 
         $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            /** @var \App\Entity\ContactMessage $msg */
+            $msg = $form->getData();
+            if (method_exists($msg, 'setCreatedAt')) {
+                $msg->setCreatedAt(new \DateTimeImmutable());
+            }
+            $em->persist($msg);
+            $em->flush();
+
+            $this->addFlash('success', 'Votre message a bien été envoyé. Merci !');
+            return $this->redirectToRoute('app_home');
+        }
 
         return $this->render('base.html.twig', [
             'partial'     => 'home/_home.html.twig',
