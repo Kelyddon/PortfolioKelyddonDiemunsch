@@ -3,11 +3,9 @@
 {% block title %}New Project{% endblock %}
 
 {% block body %}
-    <h1>Create new Project</h1>
 
-    {{ include('project/_form.html.twig') }}
-
-        <p style="margin-top:1rem">
-            <a class="cv-button" href="{{ path('app_project_index') }}">Retour à la liste des projets</a>
-        </p>
+        <div class="project-form-title-card">
+            <h1 class="projects-title">Créer un nouveau projet</h1>
+        </div>
+        {{ include('project/_form.html.twig') }}
 {% endblock %}

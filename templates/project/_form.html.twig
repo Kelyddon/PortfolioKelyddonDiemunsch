@@ -1,4 +1,27 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="project-form-card">
+    {{ form_start(form) }}
+        <div class="project-form-fields">
+            <div class="project-form-block">{{ form_row(form.name) }}</div>
+            <div class="project-form-block">{{ form_row(form.image) }}</div>
+            <div class="project-form-block">
+                <label>Langages</label>
+                <div class="project-langages-row">
+                    {% for child in form.langages %}
+                        <label class="project-lang-checkbox">
+                            {{ form_widget(child) }}
+                            {{ child.vars.label }}
+                        </label>
+                    {% endfor %}
+                </div>
+                {% if form.langages.vars.help is defined %}
+                    <div class="help-text">{{ form.langages.vars.help }}</div>
+                {% endif %}
+            </div>
+            <div class="project-form-block">{{ form_row(form.description) }}</div>
+            <div class="project-form-block">{{ form_row(form.GithubLink) }}</div>
+            <div class="project-form-block">{{ form_row(form.createAt) }}</div>
+            {{ form_row(form._token) }}
+        </div>
+        <button class="project-form-btn">{{ button_label|default('Ajouter le projet') }}</button>
+    {{ form_end(form) }}
+</div>
