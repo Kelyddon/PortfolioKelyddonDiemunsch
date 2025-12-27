@@ -3,43 +3,41 @@
 {% block title %}Project index{% endblock %}
 
 {% block body %}
-    <h1>Project index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Image</th>
-                <th>Langages</th>
-                <th>Description</th>
-                <th>GithubLink</th>
-                <th>CreateAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for project in projects %}
-            <tr>
-                <td>{{ project.id }}</td>
-                <td>{{ project.name }}</td>
-                <td>{{ project.image }}</td>
-                <td>{{ project.langages ? project.langages|json_encode : '' }}</td>
-                <td>{{ project.description }}</td>
-                <td>{{ project.GithubLink }}</td>
-                <td>{{ project.createAt ? project.createAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_project_show', {'id': project.id}) }}">show</a>
-                    <a href="{{ path('app_project_edit', {'id': project.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <div class="projects-title">Gestion des projets</div>
 
-    <a href="{{ path('app_project_new') }}">Create new</a>
+        <div class="projects-grid">
+            {% for project in projects %}
+                <div class="project-card">
+                    <div class="project-title">{{ project.name }}</div>
+                    <div class="project-media">
+                        {% if project.image %}
+                            <img src="/{{ project.image }}" alt="Image projet {{ project.name }}">
+                        {% else %}
+                            <div class="project-placeholder">Aucune image</div>
+                        {% endif %}
+                    </div>
+                    <div class="project-langs">
+                        {% if project.langages is iterable %}
+                            {% for lang in project.langages %}
+                                <span class="lang-chip">{{ lang }}</span>
+                            {% endfor %}
+                        {% elseif project.langages %}
+                            <span class="lang-chip">{{ project.langages }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="project-desc">{{ project.description }}</div>
+                    <div class="project-actions">
+                        <a href="{{ path('app_project_show', {'id': project.id}) }}" class="cv-button" style="margin-right:5px;">Voir</a>
+                        <a href="{{ path('app_project_edit', {'id': project.id}) }}" class="cv-button">Éditer</a>
+                    </div>
+                </div>
+            {% else %}
+                <div style="grid-column:1/-1;text-align:center;color:#888;font-size:1.2rem;padding:40px 0;">Aucun projet trouvé</div>
+            {% endfor %}
+        </div>
+
+        <div style="text-align:center;margin:32px 0 0 0;">
+            <a class="cv-button" href="{{ path('app_project_new') }}">Créer un nouveau projet</a>
+        </div>
 {% endblock %}
