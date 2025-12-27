@@ -27,9 +27,15 @@
                         {% endif %}
                     </div>
                     <div class="project-desc">{{ project.description }}</div>
-                    <div class="project-actions">
-                        <a href="{{ path('app_project_show', {'id': project.id}) }}" class="cv-button" style="margin-right:5px;">Voir</a>
-                        <a href="{{ path('app_project_edit', {'id': project.id}) }}" class="cv-button">Éditer</a>
+                    <div class="project-actions" style="flex-direction:column;align-items:center;gap:0;">
+                        <div style="display:flex;gap:18px;">
+                            <a href="{{ path('app_project_show', {'id': project.id}) }}" class="cv-button">Voir</a>
+                            <a href="{{ path('app_project_edit', {'id': project.id}) }}" class="cv-button">Éditer</a>
+                        </div>
+                        <form method="post" action="{{ path('app_project_delete', {'id': project.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce projet ?');" style="margin-top:10px;width:100%;display:flex;justify-content:center;">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ project.id) }}">
+                            <button class="cv-button project-delete-btn" style="background:#e74c3c;color:#fff;border-color:#e74c3c;width:80%;margin:0 auto;">Supprimer</button>
+                        </form>
                     </div>
                 </div>
             {% else %}
@@ -37,7 +43,4 @@
             {% endfor %}
         </div>
 
-        <div style="text-align:center;margin:32px 0 0 0;">
-            <a class="cv-button" href="{{ path('app_project_new') }}">Créer un nouveau projet</a>
-        </div>
 {% endblock %}

@@ -1,3 +1,31 @@
+.project-delete-btn {
+  background: #e74c3c !important;
+  color: #fff !important;
+  border: 1.5px solid #e74c3c !important;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0;
+  transition: background 0.2s, color 0.2s;
+}
+.project-delete-btn:hover {
+  background: #c0392b !important;
+  color: #fff !important;
+  border-color: #c0392b !important;
+}
+.project-delete-btn {
+  background: #e74c3c !important;
+  color: #fff !important;
+  border: 1.5px solid #e74c3c !important;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0;
+  transition: background 0.2s, color 0.2s;
+}
+.project-delete-btn:hover {
+  background: #c0392b !important;
+  color: #fff !important;
+  border-color: #c0392b !important;
+}
 /* === Project Admin Grid (Gestion des projets) === */
 .project-admin-grid {
   display: grid;
