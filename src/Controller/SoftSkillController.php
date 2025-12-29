@@ -45,13 +45,6 @@ final class SoftSkillController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_soft_skill_show', methods: ['GET'])]
-    public function show(SoftSkill $softSkill): Response
-    {
-        return $this->render('soft_skill/show.html.twig', [
-            'soft_skill' => $softSkill,
-        ]);
-    }
 
     #[Route('/{id}/edit', name: 'app_soft_skill_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, SoftSkill $softSkill, EntityManagerInterface $entityManager): Response

@@ -45,13 +45,6 @@ final class HardSkillController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_hard_skill_show', methods: ['GET'])]
-    public function show(HardSkill $hardSkill): Response
-    {
-        return $this->render('hard_skill/show.html.twig', [
-            'hard_skill' => $hardSkill,
-        ]);
-    }
 
     #[Route('/{id}/edit', name: 'app_hard_skill_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, HardSkill $hardSkill, EntityManagerInterface $entityManager): Response
