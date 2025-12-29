@@ -1,3 +1,20 @@
+/* === Logout Button (Admin) === */
+.logout-btn {
+  background: #f5f5f5;
+  color: #e74c3c;
+  border: 1.5px solid #e74c3c;
+  border-radius: 6px;
+  padding: 6px 18px;
+  margin-left: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.logout-btn:hover {
+  background: #e74c3c;
+  color: #fff;
+  border-color: #c0392b;
+}
 .project-delete-btn {
   background: #e74c3c !important;
   color: #fff !important;

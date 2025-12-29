@@ -29,7 +29,6 @@
                     <div class="project-desc">{{ project.description }}</div>
                     <div class="project-actions" style="flex-direction:column;align-items:center;gap:0;">
                         <div style="display:flex;gap:18px;">
-                            <a href="{{ path('app_project_show', {'id': project.id}) }}" class="cv-button">Voir</a>
                             <a href="{{ path('app_project_edit', {'id': project.id}) }}" class="cv-button">Éditer</a>
                         </div>
                         <form method="post" action="{{ path('app_project_delete', {'id': project.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce projet ?');" style="margin-top:10px;width:100%;display:flex;justify-content:center;">
