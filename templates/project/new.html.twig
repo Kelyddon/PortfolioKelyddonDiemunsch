@@ -3,9 +3,11 @@
 {% block title %}New Project{% endblock %}
 
 {% block body %}
+    {# === Titre de la page === #}
+    <div class="project-form-title-card">
+        <h1 class="projects-title">Créer un nouveau projet</h1>
+    </div>
 
-        <div class="project-form-title-card">
-            <h1 class="projects-title">Créer un nouveau projet</h1>
-        </div>
-        {{ include('project/_form.html.twig') }}
+    {# === Formulaire de création === #}
+    {{ include('project/_form.html.twig') }}
 {% endblock %}

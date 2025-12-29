@@ -1,4 +1,5 @@
-/* === Logout Button (Admin) === */
+.logout-btn {
+  /* === Bouton de déconnexion (admin) === */
 .logout-btn {
   background: #f5f5f5;
   color: #e74c3c;
@@ -15,6 +16,7 @@
   color: #fff;
   border-color: #c0392b;
 }
+/* === Bouton de suppression projet === */
 .project-delete-btn {
   background: #e74c3c !important;
   color: #fff !important;
@@ -43,7 +45,8 @@
   color: #fff !important;
   border-color: #c0392b !important;
 }
-/* === Project Admin Grid (Gestion des projets) === */
+.project-admin-grid {
+  /* === Grille d'administration des projets === */
 .project-admin-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -52,6 +55,7 @@
   margin: 40px auto 0 auto;
   padding: 0 16px;
 }
+/* === Carte projet admin === */
 .project-admin-card {
   background: var(--card-bg);
   border: 1.5px solid var(--card-border);
@@ -133,7 +137,8 @@
 .project-admin-actions a:hover {
   background: rgba(0,0,0,0.06);
 }
-/* Cadre du titre du formulaire projet */
+.project-form-title-card {
+  /* === Cadre du titre du formulaire projet === */
 .project-form-title-card {
   max-width: 520px;
   margin: 32px auto 0 auto;
@@ -147,6 +152,7 @@
   flex-direction: column;
   align-items: center;
 }
+/* === Titre principal des pages projets === */
 .projects-title {
   text-align: center;
   font-size: 2.1rem;
@@ -157,22 +163,26 @@
   text-shadow: 0 1px 2px rgba(0,0,0,0.10);
 }
 
-/* Espacement entre chaque bloc du formulaire projet */
+.project-form-fields {
+  /* === Champs du formulaire projet === */
 .project-form-fields {
   display: flex;
   flex-direction: column;
 }
+/* === Bloc individuel du formulaire projet === */
 .project-form-block {
   margin-bottom: 32px;
 }
 
-/* Aligner horizontalement les cases à cocher/langages */
+.project-langages-row {
+  /* === Ligne de cases à cocher pour les langages === */
 .project-langages-row {
   display: flex;
   flex-wrap: wrap;
   gap: 18px 32px;
   margin-top: 8px;
 }
+/* === Case à cocher individuelle pour un langage === */
 .project-lang-checkbox {
   display: inline-flex;
   align-items: center;
@@ -187,7 +197,7 @@
   margin: 0;
   vertical-align: middle;
 }
-/* === Project Form Title & Espacement === */
+/* === Titres dans le formulaire projet === */
 .project-form-card h1,
 .project-form-card h2,
 .project-form-card .projects-title {
@@ -200,12 +210,12 @@
   text-shadow: 0 1px 2px rgba(0,0,0,0.10);
 }
 
-/* Espacement entre chaque partie du formulaire projet */
+/* === Espacement entre les champs du formulaire projet === */
 .project-form-fields > * {
   margin-bottom: 32px !important;
 }
 
-/* Aligner les cases à cocher et les labels de langages */
+/* === Aligner les cases à cocher et labels dans le formulaire projet === */
 .project-form-fields .form-check {
   display: flex;
   align-items: center;
@@ -221,7 +231,7 @@
 .project-form-fields .form-check input[type="checkbox"] {
   margin: 0;
 }
-/* === Project Form Card === */
+/* === Carte du formulaire projet (création/édition) === */
 .project-form-card {
   max-width: 520px;
   margin: 32px auto 0 auto;
@@ -270,7 +280,8 @@
 .project-form-btn:hover {
   background: rgba(0,0,0,0.06);
 }
-/* Positionnement des formulaires d'ajout de skills sous les tableaux */
+.skills-form-row {
+  /* === Ligne de formulaire d'ajout de skills sous les tableaux === */
 .skills-form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -1,8 +1,12 @@
+{# === Formulaire projet (création/édition) === #}
 <div class="project-form-card">
     {{ form_start(form) }}
         <div class="project-form-fields">
+            {# --- Nom du projet --- #}
             <div class="project-form-block">{{ form_row(form.name) }}</div>
+            {# --- Image du projet --- #}
             <div class="project-form-block">{{ form_row(form.image) }}</div>
+            {# --- Langages (cases à cocher) --- #}
             <div class="project-form-block">
                 <label>Langages</label>
                 <div class="project-langages-row">
@@ -17,8 +21,11 @@
                     <div class="help-text">{{ form.langages.vars.help }}</div>
                 {% endif %}
             </div>
+            {# --- Description --- #}
             <div class="project-form-block">{{ form_row(form.description) }}</div>
+            {# --- Lien Github --- #}
             <div class="project-form-block">{{ form_row(form.GithubLink) }}</div>
+            {# --- Date de création --- #}
             <div class="project-form-block">{{ form_row(form.createAt) }}</div>
             {{ form_row(form._token) }}
         </div>
