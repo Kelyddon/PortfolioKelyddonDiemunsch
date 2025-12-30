@@ -6,15 +6,15 @@
             <div class="project-form-block">{{ form_row(form.name) }}</div>
             {# --- Image du projet --- #}
             <div class="project-form-block">{{ form_row(form.image) }}</div>
-            {# --- Langages (cases à cocher) --- #}
+            {# --- Langages (cases à cocher, grille 3 colonnes) --- #}
             <div class="project-form-block">
-                <label>Langages</label>
+                <label style="display:block;margin-bottom:8px;">Langages</label>
                 <div class="project-langages-row">
                     {% for child in form.langages %}
-                        <label class="project-lang-checkbox">
+                        <div class="project-lang-checkbox" style="display: flex; flex-direction: column; align-items: center;">
+                            {{ form_label(child) }}
                             {{ form_widget(child) }}
-                            {{ child.vars.label }}
-                        </label>
+                        </div>
                     {% endfor %}
                 </div>
                 {% if form.langages.vars.help is defined %}

@@ -41,14 +41,7 @@ final class ProjectController extends AbstractController
         // Récupérer la liste des langages depuis HardSkill
         $choices = [];
         foreach ($hardRepo->findAll() as $hs) {
-            $val = null;
-            if (method_exists($hs, 'getLanguage')) {
-                $val = $hs->getLanguage();
-            } elseif (method_exists($hs, 'getName')) {
-                $val = $hs->getName();
-            } elseif (method_exists($hs, 'getLabel')) {
-                $val = $hs->getLabel();
-            }
+            $val = $hs->getLanguage();
             if ($val !== null && $val !== '') {
                 $choices[$val] = $val; // label => value
             }
@@ -96,14 +89,7 @@ final class ProjectController extends AbstractController
         // Préparer les choix de langages pour les cases à cocher
         $choices = [];
         foreach ($hardRepo->findAll() as $hs) {
-            $val = null;
-            if (method_exists($hs, 'getLanguage')) {
-                $val = $hs->getLanguage();
-            } elseif (method_exists($hs, 'getName')) {
-                $val = $hs->getName();
-            } elseif (method_exists($hs, 'getLabel')) {
-                $val = $hs->getLabel();
-            }
+            $val = $hs->getLanguage();
             if ($val !== null && $val !== '') {
                 $choices[$val] = $val;
             }

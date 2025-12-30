@@ -10,9 +10,6 @@ var/
 .env.local.php
 /.phpunit.result.cache
 
-# Node / Webpack Encore
-/node_modules/
-/public/build/
 
 # IDE/OS
 /.idea/
@@ -21,6 +18,3 @@ var/
 
 # Logs
 *.log
-
-# Optionnel: ignorer les uploads temporaires
-# public/uploads/

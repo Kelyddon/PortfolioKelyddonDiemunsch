@@ -1,5 +1,4 @@
-.logout-btn {
-  /* === Bouton de déconnexion (admin) === */
+/* === Bouton de déconnexion (admin) === */
 .logout-btn {
   background: #f5f5f5;
   color: #e74c3c;
@@ -31,22 +30,7 @@
   color: #fff !important;
   border-color: #c0392b !important;
 }
-.project-delete-btn {
-  background: #e74c3c !important;
-  color: #fff !important;
-  border: 1.5px solid #e74c3c !important;
-  font-weight: 600;
-  margin-top: 0;
-  margin-bottom: 0;
-  transition: background 0.2s, color 0.2s;
-}
-.project-delete-btn:hover {
-  background: #c0392b !important;
-  color: #fff !important;
-  border-color: #c0392b !important;
-}
-.project-admin-grid {
-  /* === Grille d'administration des projets === */
+/* === Grille d'administration des projets === */
 .project-admin-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -137,8 +121,7 @@
 .project-admin-actions a:hover {
   background: rgba(0,0,0,0.06);
 }
-.project-form-title-card {
-  /* === Cadre du titre du formulaire projet === */
+/* === Cadre du titre du formulaire projet === */
 .project-form-title-card {
   max-width: 520px;
   margin: 32px auto 0 auto;
@@ -163,8 +146,7 @@
   text-shadow: 0 1px 2px rgba(0,0,0,0.10);
 }
 
-.project-form-fields {
-  /* === Champs du formulaire projet === */
+/* === Champs du formulaire projet === */
 .project-form-fields {
   display: flex;
   flex-direction: column;
@@ -174,27 +156,31 @@
   margin-bottom: 32px;
 }
 
+/* === Ligne de cases à cocher pour les langages (grille 3 colonnes) === */
+/* Ligne des cases à cocher langages : flex-wrap pour garder label collé à la case */
+/* Grille 3 colonnes fixes pour les langages, labels collés à la case */
+/* Grille 3 colonnes fixes, labels collés à la case */
 .project-langages-row {
-  /* === Ligne de cases à cocher pour les langages === */
-.project-langages-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px 32px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 0;
   margin-top: 8px;
 }
 /* === Case à cocher individuelle pour un langage === */
+/* Case à cocher + label rapprochés */
+/* Case à cocher + label collés, alignés horizontalement */
+/* Label collé à la case, sans flex */
 .project-lang-checkbox {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline-block;
   font-size: 1rem;
   font-weight: 500;
   color: #222;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
   white-space: nowrap;
 }
 .project-lang-checkbox input[type="checkbox"] {
-  margin: 0;
+  margin-right: 6px;
+  margin-left: 0;
   vertical-align: middle;
 }
 /* === Titres dans le formulaire projet === */
@@ -280,8 +266,7 @@
 .project-form-btn:hover {
   background: rgba(0,0,0,0.06);
 }
-.skills-form-row {
-  /* === Ligne de formulaire d'ajout de skills sous les tableaux === */
+/* === Ligne de formulaire d'ajout de skills sous les tableaux === */
 .skills-form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -58,7 +58,7 @@ class AdminController extends AbstractController
         if ($type === 'hard') {
             $s = new HardSkill(); $s->setLanguage($value);
         } else {
-            $s = new SoftSkill(); method_exists($s, 'setName') ? $s->setName($value) : $s->setLabel($value);
+            $s = new SoftSkill(); $s->setSkill($value);
         }
         $em->persist($s); $em->flush();
         return new JsonResponse(['status' => 'ok', 'id' => $s->getId(), 'value' => $value]);
@@ -71,7 +71,11 @@ class AdminController extends AbstractController
         $repo = $type === 'hard' ? $em->getRepository(HardSkill::class) : $em->getRepository(SoftSkill::class);
         $s = $repo->find($id);
         if (!$s) { return new JsonResponse(['status' => 'error', 'msg' => 'not found'], 404); }
-        $type === 'hard' ? $s->setLanguage($value) : (method_exists($s, 'setName') ? $s->setName($value) : $s->setLabel($value));
+        if ($type === 'hard' && $s instanceof HardSkill) {
+            $s->setLanguage($value);
+        } elseif ($type !== 'hard' && $s instanceof SoftSkill) {
+            $s->setSkill($value);
+        }
         $em->flush();
         return new JsonResponse(['status' => 'ok']);
     }
