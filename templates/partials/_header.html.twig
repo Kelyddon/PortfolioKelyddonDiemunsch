@@ -1,17 +1,28 @@
 <header class="site-header">
   <div class="site-header__inner">
     <h1 class="site-header__title">Kelyddon Diemunsch</h1>
+    <button class="burger-menu" id="burgerMenuBtn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-
-  <nav class="site-nav">
-  <a href="{{ path('app_home') }}">Accueil</a>
-  {# <a href="{{ path('app_projects') }}">Projets</a>
-  <a href="{{ path('app_about') }}">À propos</a> #}
-  {% if is_granted('ROLE_ADMIN') %}
-    <a href="{{ path('app_project_index') }}">Admin projets</a>
-    <a href="{{ path('app_message_index') }}">Messages</a>
-    <a href="{{ path('app_project_new') }}">Ajouter un projet</a>
-    <a href="{{ path('app_logout') }}" class="logout-btn">Se déconnecter</a>
-  {% endif %}
-</nav>
+  <nav class="site-nav" id="mainNav">
+    <a href="{{ path('app_home') }}">Accueil</a>
+    {# <a href="{{ path('app_projects') }}">Projets</a>
+    <a href="{{ path('app_about') }}">À propos</a> #}
+    {% if is_granted('ROLE_ADMIN') %}
+      <a href="{{ path('app_project_index') }}">Admin projets</a>
+      <a href="{{ path('app_message_index') }}">Messages</a>
+      <a href="{{ path('app_project_new') }}">Ajouter un projet</a>
+      <a href="{{ path('app_logout') }}" class="logout-btn">Se déconnecter</a>
+    {% endif %}
+  </nav>
+  <script>
+    const burgerBtn = document.getElementById('burgerMenuBtn');
+    const nav = document.getElementById('mainNav');
+    burgerBtn.addEventListener('click', function() {
+      nav.classList.toggle('open');
+      burgerBtn.classList.toggle('open');
+      burgerBtn.setAttribute('aria-expanded', nav.classList.contains('open'));
+    });
+  </script>
 </header>
