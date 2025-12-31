@@ -1,3 +1,38 @@
+/* === Variables CSS === */
+:root {
+  --blue-top: #0C24C4;
+  --blue-bottom: #51ABCF;
+  --text-invert: #fff;
+
+  --container-max: 1200px;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+
+  --page-top: #51ABCF;
+  --page-bottom: #0C24C4;
+
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+
+  --header-height: 200px;
+
+  /* Commons */
+  --card-bg: #fff;
+  --card-fg: #000;
+  --card-border: rgba(0,0,0,0.6);
+  --muted-border: rgba(0,0,0,0.55);
+  --soft-bg: rgba(0,0,0,0.08);
+
+  --chip-fg: #fff;
+  --chip-bg: #000;
+
+  --surface-muted: #f7f7f7;
+  --surface-media: #e0e0e0;
+}
 /* === Bouton de déconnexion (admin) === */
 .logout-btn {
   background: #f5f5f5;
@@ -157,9 +192,6 @@
 }
 
 /* === Ligne de cases à cocher pour les langages (grille 3 colonnes) === */
-/* Ligne des cases à cocher langages : flex-wrap pour garder label collé à la case */
-/* Grille 3 colonnes fixes pour les langages, labels collés à la case */
-/* Grille 3 colonnes fixes, labels collés à la case */
 .project-langages-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -167,9 +199,7 @@
   margin-top: 8px;
 }
 /* === Case à cocher individuelle pour un langage === */
-/* Case à cocher + label rapprochés */
-/* Case à cocher + label collés, alignés horizontalement */
-/* Label collé à la case, sans flex */
+
 .project-lang-checkbox {
   display: inline-block;
   font-size: 1rem;
@@ -310,46 +340,6 @@
 .skill-form button:hover {
   background: rgba(0,0,0,0.06);
 }
-/* Design tokens */
-:root {
-  --blue-top: #0C24C4;
-  --blue-bottom: #51ABCF;
-  --text-invert: #fff;
-
-  --container-max: 1200px;
-
-  --radius-sm: 4px;
-  --radius-md: 6px;
-
-  --page-top: #51ABCF;
-  --page-bottom: #0C24C4;
-
-  --space-1: 8px;
-  --space-2: 12px;
-  --space-3: 16px;
-  --space-4: 24px;
-  --space-5: 32px;
-
-  --header-height: 200px;
-
-  /* Commons */
-  --card-bg: #fff;
-  --card-fg: #000;
-  --card-border: rgba(0,0,0,0.6);
-  --muted-border: rgba(0,0,0,0.55);
-  --soft-bg: rgba(0,0,0,0.08);
-
-  --chip-fg: #fff;
-  --chip-bg: #000;
-
-  --surface-muted: #f7f7f7;
-  --surface-media: #e0e0e0;
-}
-
-/* Base & layout (sticky footer) */
-*,
-*::before,
-*::after { box-sizing: border-box; }
 
 html, body { height: 100%; }
 
@@ -363,8 +353,6 @@ body {
   background-attachment: fixed;
 }
 
-  /* --- Custom Footer --- */
-  /* --- Custom Footer --- */
   .custom-footer {
     width: 100%;
     background: linear-gradient(to bottom, #1436b8 0%, #51ABCF 100%);
@@ -457,13 +445,13 @@ body {
       min-width: 180px;
       min-height: 120px;
     }
-  }
+}
 main.container {
   flex: 1 0 auto;
   padding-bottom: var(--space-5);
 }
 
-/* Utilities (grouped styles) */
+/* Utilities */
 .about,
 .projects,
 .contact {
@@ -495,7 +483,7 @@ main.container {
   font-weight: 600;
 }
 
-/* About title inside card (simple left-aligned heading) */
+/* About title inside card */
 .about-title {
   margin: 0 0 var(--space-3);
   font-size: 24px;

@@ -1,0 +1,30 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Messages reçus{% endblock %}
+
+{% block body %}
+    <div class="projects-title">Gestion des messages</div>
+
+    <div class="projects-grid">
+        {% for contact_message in contact_messages %}
+            <div class="project-card">
+                <div class="project-title">{{ contact_message.email }}</div>
+                <div class="project-desc">
+                    <strong>Numéro :</strong> {{ contact_message.phone }}<br>
+                    <strong>Date :</strong> {{ contact_message.createdAt ? contact_message.createdAt|date('d/m/Y H:i') : '' }}<br>
+                    <strong>Description :</strong><br>
+                    <span style="white-space:pre-line;">{{ contact_message.description }}</span>
+                </div>
+                <div class="project-actions" style="flex-direction:column;align-items:center;gap:0;">
+                    <form method="post" action="{{ path('app_message_delete', {'id': contact_message.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce message ?');" style="margin-top:10px;width:100%;display:flex;justify-content:center;">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ contact_message.id) }}">
+                        <button class="cv-button project-delete-btn" style="background:#e74c3c;color:#fff;border-color:#e74c3c;width:80%;margin:0 auto;">Supprimer</button>
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <div style="grid-column:1/-1;text-align:center;color:#888;font-size:1.2rem;padding:40px 0;">Aucun message trouvé</div>
+        {% endfor %}
+    </div>
+{% endblock %}
