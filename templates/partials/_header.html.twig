@@ -7,10 +7,8 @@
   </div>
   <nav class="site-nav" id="mainNav">
     <a href="{{ path('app_home') }}">Accueil</a>
-    {# <a href="{{ path('app_projects') }}">Projets</a>
-    <a href="{{ path('app_about') }}">À propos</a> #}
-    {% if is_granted('ROLE_ADMIN') %}
-      <a href="{{ path('app_project_index') }}">Admin projets</a>
+    <a href="{{ path('app_projects_public') }}">Projets</a>
+      {% if is_granted('ROLE_ADMIN') %}
       <a href="{{ path('app_message_index') }}">Messages</a>
       <a href="{{ path('app_project_new') }}">Ajouter un projet</a>
       <a href="{{ path('app_logout') }}" class="logout-btn">Se déconnecter</a>

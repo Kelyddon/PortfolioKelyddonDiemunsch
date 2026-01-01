@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projets{% endblock %}
+
+{% block body %}
+    <div class="projects-title">Projets réalisés</div>
+    <div class="projects-grid">
+        {% for project in projects %}
+            <div class="project-card">
+                <div class="project-title">{{ project.name }}</div>
+                <div class="project-media">
+                    {% if project.image %}
+                        <img src="/{{ project.image }}" alt="Image projet {{ project.name }}">
+                    {% else %}
+                        <div class="project-placeholder">Aucune image</div>
+                    {% endif %}
+                </div>
+                <div class="project-langs">
+                    {% if project.langages is iterable %}
+                        {% for lang in project.langages %}
+                            <span class="lang-chip">{{ lang }}</span>
+                        {% endfor %}
+                    {% elseif project.langages %}
+                        <span class="lang-chip">{{ project.langages }}</span>
+                    {% else %}
+                        <span class="lang-chip">Langages non renseignés</span>
+                    {% endif %}
+                </div>
+                <div class="project-desc">{{ project.description }}</div>
+                <div class="project-actions">
+                    {% if project.GithubLink %}
+                        <a class="btn-github" href="{{ project.GithubLink }}" target="_blank" rel="noopener">Voir sur GitHub</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% else %}
+            <div style="grid-column:1/-1;text-align:center;color:#888;font-size:1.2rem;padding:40px 0;">Aucun projet trouvé</div>
+        {% endfor %}
+    </div>
+{% endblock %}

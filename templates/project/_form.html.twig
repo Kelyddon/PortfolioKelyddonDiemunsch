@@ -17,9 +17,6 @@
                         </div>
                     {% endfor %}
                 </div>
-                {% if form.langages.vars.help is defined %}
-                    <div class="help-text">{{ form.langages.vars.help }}</div>
-                {% endif %}
             </div>
             {# --- Description --- #}
             <div class="project-form-block">{{ form_row(form.description) }}</div>

@@ -19,7 +19,6 @@ class ProjectType extends AbstractType
             ->add('image', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'help' => 'Image du projet (JPG/PNG) – sera copiée dans public/upload',
             ])
             // Choices provided by controller from HardSkill list
             ->add('langages', ChoiceType::class, [

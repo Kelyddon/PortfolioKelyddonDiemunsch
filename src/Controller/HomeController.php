@@ -17,8 +17,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Attribute\Route;
 
-class HomeController extends AbstractController
-{
+class HomeController extends AbstractController{
+    #[Route('/projets', name: 'app_projects_public', methods: ['GET'])]
+    public function publicProjects(ProjectRepository $projectsRepo): Response
+    {
+        $projects = $projectsRepo->findBy([], ['createAt' => 'DESC']);
+        return $this->render('project/public.html.twig', [
+            'projects' => $projects,
+        ]);
+    }
+
     #[Route('/', name: 'app_home', methods: ['GET','POST'])]
     public function index(
         Request $request,
