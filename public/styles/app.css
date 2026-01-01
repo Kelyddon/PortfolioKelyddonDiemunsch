@@ -258,13 +258,13 @@
 
   /* Commons */
   --card-bg: #fff;
-  --card-fg: #000;
+  --card-fg: #000000;
   --card-border: rgba(0,0,0,0.6);
   --muted-border: rgba(0,0,0,0.55);
   --soft-bg: rgba(0,0,0,0.08);
 
   --chip-fg: #fff;
-  --chip-bg: #000;
+  --chip-bg: #072397;
 
   --surface-muted: #f7f7f7;
   --surface-media: #e0e0e0;
@@ -587,18 +587,19 @@ body {
   background: linear-gradient(to bottom, var(--page-top) 0%, var(--page-bottom) 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  font-family: Arial, sans-serif;
 }
 
   .custom-footer {
     width: 100%;
     background: linear-gradient(to bottom, #1436b8 0%, #51ABCF 100%);
-    color: #fff;
+    color: #ffffff;
     padding: 0;
     margin: 0;
   }
   .custom-footer-title {
     text-align: center;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 500;
     padding: 24px 0 8px 0;
   }
@@ -631,8 +632,8 @@ body {
     justify-content: flex-end;
   }
   .custom-footer-social-box {
-    background: #fff;
-    border: 1px solid #222;
+    background: #8f94ca44;
+    border: 1px solid #0609caf2;
     border-radius: 6px;
     min-width: 220px;
     min-height: 140px;
@@ -642,7 +643,7 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   }
   .custom-footer-social-title {
-    background: #000;
+    background: #0927bd;
     color: #fff;
     font-size: 20px;
     font-weight: 500;
