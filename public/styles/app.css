@@ -753,6 +753,32 @@ main.container {
 .btn-github:hover,
 .contact-submit:hover { background: rgba(0,0,0,0.06); }
 
+/* Specific 404 button - prominent, filled */
+.button-404 {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(black);
+  border: 1px solid rgba(255,255,255,0.12);
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(10,30,120,0.25);
+}
+.button-404:hover { transform: translateY(-1px); opacity: 0.98; }
+
+/* Return-to-list button on project edit - subtle outline */
+.btn-return-list {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(black);
+  border: 1.5px solid var(--blue-top);
+  font-weight: 600;
+}
+
 /* Header */
 .site-header {
   background: linear-gradient(to top, var(--blue-bottom) 0%, var(--blue-top) 100%);

@@ -80,7 +80,7 @@
           <button type="button" id="photo-upload-btn" class="cv-button">Changer la photo</button>
         </form>
         {% endif %}
-        <a class="cv-button" href="{{ asset('cv/CV.pdf') }}" download style="margin-top:18px;">Télécharger le CV</a>
+        <a class="cv-button" href="{{ asset('cv/CV.pdf') }}" download style="margin-top:18px;">Télécharger mon CV</a>
         {% if is_granted('ROLE_ADMIN') %}
         <form id="cv-upload-form" method="post" action="{{ path('admin_cv_upload') }}" enctype="multipart/form-data" style="margin-top:10px;">
           <input type="file" id="cv-file-input" name="cv_file" accept="application/pdf" hidden>

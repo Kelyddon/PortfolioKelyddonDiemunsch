@@ -71,7 +71,7 @@ final class ProjectController extends AbstractController
             $entityManager->persist($project);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_project_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_projects_public', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('project/new.html.twig', [
@@ -131,7 +131,7 @@ final class ProjectController extends AbstractController
 
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_project_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_projects_public', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('project/edit.html.twig', [
@@ -165,6 +165,6 @@ final class ProjectController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_project_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_projects_public', [], Response::HTTP_SEE_OTHER);
     }
 }
