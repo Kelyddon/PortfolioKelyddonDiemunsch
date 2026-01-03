@@ -1,12 +1,12 @@
 <section class="projects">
-  <h2 class="projects-title">Projets réalisés</h2>
+  <h2 class="projects-title">Exemples de projets réalisés</h2>
 
   <div class="projects-grid">
     {% for p in projects %}
-      {% set title = p.name ?? p.title ?? 'Projet ' ~ loop.index %}
+      {% set title = p.name ?? p.title ?? ('Projet ' ~ loop.index) %}
       {% set img   = p.imagePath ?? p.image ?? p.cover ?? null %}
       {% set desc  = p.description ?? p.presentation ?? '' %}
-      {% set repo  = p.githubUrl ?? p.github ?? p.repoUrl ?? '#' %}
+      {% set repo  = p.GithubLink ?? p.githubUrl ?? p.github ?? p.repoUrl ?? '#' %}
       {% set langs = p.languages ?? p.langages ?? p.hardSkills ?? [] %}
 
       <article class="project-card">
@@ -36,7 +36,7 @@
           {% endif %}
         </div>
 
-        <div class="project-desc">{{ desc }}</div>
+        <div class="project-desc">{{ desc|e|nl2br }}</div>
 
         <div class="project-actions">
           <a class="btn-github" href="{{ repo }}" target="_blank" rel="noopener">Voir sur GitHub</a>

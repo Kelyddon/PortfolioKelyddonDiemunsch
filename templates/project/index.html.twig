@@ -31,7 +31,7 @@
                     {% endif %}
                 </div>
                 {# --- Description du projet --- #}
-                <div class="project-desc">{{ project.description }}</div>
+                <div class="project-desc">{{ project.description|e|nl2br }}</div>
                 {# --- Actions (éditer, supprimer) --- #}
                 <div class="project-actions" style="flex-direction:column;align-items:center;gap:0;">
                     <div style="display:flex;gap:18px;">

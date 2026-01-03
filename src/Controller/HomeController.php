@@ -186,4 +186,12 @@ class HomeController extends AbstractController{
         }
         throw new \LogicException('HardSkill: ajoute un champ texte (ex: language) avec son setter.');
     }
+
+    // Catch-all route to render custom 404 page for unknown URLs
+    #[Route('/{_path}', name: 'app_catchall_404', requirements: ['_path' => '^(?!_wdt|_profiler).+'], methods: ['GET'], priority: -255)]
+    public function catchAll(string $_path): Response
+    {
+        $html = $this->renderView('bundles/TwigBundle/Exception/error404.html.twig', ['path' => $_path]);
+        return new Response($html, Response::HTTP_NOT_FOUND);
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Project;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -29,7 +30,11 @@ class ProjectType extends AbstractType
                 'help' => 'Sélectionner un ou plusieurs langages depuis vos Hard skills',
             ])
             ->add('description')
-            ->add('GithubLink')
+            ->add('GithubLink', UrlType::class, [
+                'required' => false,
+                'label' => 'Lien GitHub',
+                'attr' => ['placeholder' => 'https://github.com/username/repo'],
+            ])
             ->add('createAt', null, [
                 'widget' => 'single_text',
             ])

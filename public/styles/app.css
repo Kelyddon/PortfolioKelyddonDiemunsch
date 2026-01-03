@@ -599,7 +599,7 @@ body {
   }
   .custom-footer-title {
     text-align: center;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 500;
     padding: 24px 0 8px 0;
   }
@@ -953,8 +953,8 @@ main.container {
   text-align: center;
 }
 .skills-list li {
-  padding: 13px 0;
-  font-size: 20px;
+  padding: 8px 0;
+  font-size: 17px;
 }
 
 /* Colonne droite */
@@ -1040,7 +1040,12 @@ img.about-photo {
   padding: 6px 12px;
   font-size: 14px;
 }
-.project-desc { padding: 16px; min-height: 120px; }
+.project-desc {
+  padding: 16px;
+  min-height: 120px;
+  /* line-height adjusted to add ~5px between text lines without affecting layout */
+  line-height: 2em;
+}
 .project-actions {
   padding: 16px;
   display: flex;

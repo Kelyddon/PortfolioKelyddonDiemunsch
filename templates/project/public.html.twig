@@ -26,10 +26,21 @@
                         <span class="lang-chip">Langages non renseignés</span>
                     {% endif %}
                 </div>
-                <div class="project-desc">{{ project.description }}</div>
+                <div class="project-desc">{{ project.description|e|nl2br }}</div>
                 <div class="project-actions">
                     {% if project.GithubLink %}
                         <a class="btn-github" href="{{ project.GithubLink }}" target="_blank" rel="noopener">Voir sur GitHub</a>
+                    {% endif %}
+
+                    {# Afficher les actions d'administration uniquement pour les admins #}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <div style="display:flex;gap:12px;justify-content:center;margin-top:8px;">
+                            <a href="{{ path('app_project_edit', {'id': project.id}) }}" class="cv-button">Éditer</a>
+                            <form method="post" action="{{ path('app_project_delete', {'id': project.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce projet ?');">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ project.id) }}">
+                                <button type="submit" class="cv-button project-delete-btn" style="background:#e74c3c;color:#fff;border-color:#e74c3c;">Supprimer</button>
+                            </form>
+                        </div>
                     {% endif %}
                 </div>
             </div>
