@@ -940,12 +940,15 @@ main.container {
   font-weight: 600;
 }
 .about-textarea {
-  
-  height: 170px;
+  /* flexible box: grows with content to avoid overlap with skills */
+  min-height: 120px;
+  box-sizing: border-box;
   border: 1px solid var(--card-border);
   border-radius: var(--radius-sm);
   margin-bottom: var(--space-5);
   padding: var(--space-2);
+  white-space: pre-wrap;
+  overflow: visible;
 }
 .skills-row {
   display: grid;
@@ -1099,4 +1102,21 @@ img.about-photo {
 }
 @media (max-width: 640px) {
   .projects-grid { grid-template-columns: 1fr; }
+}
+
+/* Mobile: allow about-text to grow and push skills below (prevent overlap) */
+@media (max-width: 700px) {
+  .about-textarea {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .skills-row {
+    margin-top: var(--space-3) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+  }
+  .skill-box {
+    width: 100% !important;
+  }
 }
