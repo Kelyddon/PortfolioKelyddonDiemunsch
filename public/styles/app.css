@@ -42,7 +42,7 @@
   .site-nav {
     display: none !important;
     position: absolute;
-    top: var(--header-height);
+    top: var(--mobile-nav-top);
     left: 0;
     width: 100vw;
     background: linear-gradient(to top, var(--blue-bottom) 0%, var(--blue-top) 100%);
@@ -255,6 +255,7 @@
   --space-5: 32px;
 
   --header-height: 200px;
+  --mobile-nav-top: 110px; /* menu top offset on mobile to avoid covering header */
 
   /* Commons */
   --card-bg: #fff;
