@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : sam. 03 jan. 2026 à 17:17
+-- Généré le : dim. 04 jan. 2026 à 15:56
 -- Version du serveur : 5.7.24
 -- Version de PHP : 8.3.1
 
@@ -40,7 +40,7 @@ CREATE TABLE `contact_message` (
 --
 
 INSERT INTO `contact_message` (`id`, `email`, `phone`, `description`, `created_at`) VALUES
-(1, 'aaaaa@aaaa.aaaa', '1212122121', 'sss', '2025-12-23 15:34:44');
+(2, 'dupont@dupont.fr', '1245030152', 'Bonjour', '2026-01-04 15:54:36');
 
 -- --------------------------------------------------------
 
@@ -240,7 +240,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `contact_message`
 --
 ALTER TABLE `contact_message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `hard_skill`
