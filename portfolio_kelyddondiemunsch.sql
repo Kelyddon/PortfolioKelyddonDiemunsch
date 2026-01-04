@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : dim. 04 jan. 2026 à 15:56
+-- Généré le : dim. 04 jan. 2026 à 19:59
 -- Version du serveur : 5.7.24
 -- Version de PHP : 8.3.1
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `portfolio`
+-- Base de données : `portfolio_kelyddondiemunsch`
 --
 
 -- --------------------------------------------------------
@@ -246,7 +246,7 @@ ALTER TABLE `contact_message`
 -- AUTO_INCREMENT pour la table `hard_skill`
 --
 ALTER TABLE `hard_skill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `presentation_text`
